@@ -1,0 +1,13 @@
+<div class="panel panel-info">
+    <div class="panel-heading"></div>
+    <div class="panel-body">
+        <table>
+            <tr><td>new Name </td><td><input type ="text" ng-model="car.name" value="{{car.name}}" /></td></tr>
+            <tr><td>new Type </td><td><input type ="text" ng-model="car.type" value="{{car.type}}" /></td></tr>
+            <tr><td>new Fuel </td><td> <input type = "text" ng-model="car.fuel" value="{{car.fuel}}" /></td></tr>
+            <tr><td>new Price </td><td> <input type=" text" ng-model="car.price" value="{{car.price}}"/></td></tr>
+        </table>
+        <button ng-click="CarEditCtrl()">Save</button>
+        <p><a id='goBackLink' href='/#/'>Back to list</a></p>
+    </div>
+</div>

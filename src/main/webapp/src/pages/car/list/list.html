@@ -3,6 +3,19 @@
         <h3 class="panel-title">Car List</h3>
     </div>
     <div>
+        <p></p>
+        <button ng-if="showEditButton" ng-click="create($index)">Create new</button>
+        <div ng-if="displayEditView">
+            <div ng-if ="$index === idToEdit">
+                <p>Car name: <input type ="text"  ng-model ="car.name"  /> </p>
+                <p>Car type: <input type ="text" ng-model ="car.type"  /> </p>
+                <p>Car fuel: <input type ="text" ng-model ="car.fuel"  /> </p>
+                <p>Car price: <input type ="text" ng-model ="car.price"  /></p>
+                <button ng-click="saveCreate()">Add</button>
+                <button ng-click="clickCreateBack()">Back</button>
+            </div>
+        </div>
+        <p></p>
         <table class="table">
             <tr>
                 <td>Name</td>
@@ -12,9 +25,18 @@
             <tr ng-repeat="car in cars">
                 <td><a href="#/carDetail/{{car.id}}">{{car.name}}</a></td>
                 <td>
-                    <button>Edit</button>
+                    <button ng-if="showEditButton" ng-click="clickEdit($index)">Edit</button>
+                    <div ng-if="displayEditView">
+                        <div ng-if ="$index === idToEdit">
+                            <p>Car name: <input type ="text" ng-model ="car.name" value="{{car.name}}" /> </p>
+                            <p>Car type: <input type ="text" ng-model ="car.type" value="{{car.type}}" /> </p>
+                            <p>Car fuel: <input type ="text" id="owner" ng-model ="car.fuel" value="{{car.fuel}}" /> </p>
+                            <p>Car price: <input type ="text" id ="priority" ng-model ="car.price" value="{{car.price}}" /></p>
+                            <button ng-click="edit()">Save</button>
+                            <button ng-click="clickEditBack()">Back</button>
+                        </div>
+                    </div>
                 </td>
-
                 <td>
                     <button ng-click="delete($index)">Delete</button>
                 </td>

@@ -20,6 +20,11 @@
                     templateUrl: 'src/pages/car/details/detail.html',
                     controller: 'CarDetailCtrl'
                 })
+            .when('/carEdit/:carId',
+                {
+                    templateUrl: 'src/pages/car/edit/edit.html',
+                    controller: 'CarEditCtrl'
+                })
             .otherwise({redirectTo: '/'});
     }
 

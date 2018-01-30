@@ -32,7 +32,7 @@
             },
 
             put: function (car) {
-                return $http.post('cars', car, {});
+                return $http.put('cars', car, {});
             }
         };
     }
