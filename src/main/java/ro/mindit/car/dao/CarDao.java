@@ -82,7 +82,7 @@ public class CarDao {
 
         resultSet.close();
         statement.close();
-
+        disconnect();
         return car;
     }
 
@@ -112,6 +112,49 @@ public class CarDao {
         disconnect();
 
         return todoList;
+    }
+
+    public void addCar(Car car) throws SQLException {
+        String sql = "INSERT INTO cars(NAME, TYPE, FUEL, PRICE) VALUES(?, ?, ?, ?)";
+
+        connect();
+        PreparedStatement statement = jdbcConnection.prepareStatement(sql);
+        statement.setString(1, car.getName());
+        statement.setString(2, car.getType());
+        statement.setString(3, car.getFuel());
+        statement.setInt(4, car.getPrice());
+
+        statement.executeUpdate();
+        statement.close();
+        disconnect();
+    }
+
+    public void deleteCarByiD(int id) throws SQLException {
+        String sql = "DELETE FROM cars WHERE id = ?";
+
+        connect();
+        PreparedStatement statement = jdbcConnection.prepareStatement(sql);
+        statement.setInt(1, id);
+
+        statement.executeUpdate();
+        statement.close();
+        disconnect();
+    }
+
+    public void updateCarById(String name, String type, String fuel, int price, int id) throws SQLException {
+        String sql = "UPDATE cars SET name = ?, type = ?, fuel =?, price = ? WHERE id = ?";
+
+        connect();
+        PreparedStatement statement = jdbcConnection.prepareStatement(sql);
+        statement.setString(1, name);
+        statement.setString(2, type);
+        statement.setString(3, fuel);
+        statement.setInt(4, price);
+        statement.setInt(5, id);
+
+        statement.executeUpdate();
+        statement.close();
+        disconnect();
     }
 
 }
