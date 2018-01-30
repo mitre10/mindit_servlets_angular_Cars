@@ -1,0 +1,24 @@
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <h3 class="panel-title">Car List</h3>
+    </div>
+    <div>
+        <table class="table">
+            <tr>
+                <td>Name</td>
+                <td>Operation</td>
+                <td>Operation</td>
+            </tr>
+            <tr ng-repeat="car in cars">
+                <td><a href="#/carDetail/{{car.id}}">{{car.name}}</a></td>
+                <td>
+                    <button>Edit</button>
+                </td>
+
+                <td>
+                    <button>Delete</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
